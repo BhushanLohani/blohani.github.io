@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhushan Lohani | Engineering Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <span class="nav-logo">Portfolio</span>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero / Profile Header -->
+    <header id="about" class="hero-section">
+        <div class="hero-content">
+            <h1>Your Name, PhD</h1>
+            <p class="subtitle">Electrical Engineer & Semiconductor Packaging Specialist</p>
+            <p class="bio">
+                Innovative Semiconductor Engineer with a Ph.D. in Electrical and Computer Engineering, specializing in advanced CMOS design, EDA tools, advanced lithography, semiconductor test structures, advanced packaging and heterogeneous integration. Extensive teaching experience in SPICE simulation and Cadence Virtuoso (schematic, layout, simulation, DRC, and LVS). Proven track record in managing packaging development processes, executing qualification testing, defining technical specifications, and driving yield/cost optimization. Expertise in collaborating with tool vendors, OSATs, and cross-functional stakeholders to transition advanced packaging technologies into high-volume manufacturing (HVM).
+            </p>
+            <div class="social-tags">
+                <span class="tag">Semiconductor Devices</span>
+                <span class="tag">Advanced Packaging</span>
+                <span class="tag">Proccess Integration</span>
+                <span class="tag">MATLAB</span>
+                <span class="tag">FEA Modeling</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Project Showcase Section -->
+    <main id="projects" class="project-section">
+        <div class="section-container">
+            <h2>Featured Projects</h2>
+            
+            <!-- Interactive Filter Controls -->
+            <div class="filter-controls">
+                <button class="filter-btn active" onclick="filterProjects('all')">All</button>
+                <button class="filter-btn" onclick="filterProjects('simulation')">Simulation</button>
+                <button class="filter-btn" onclick="filterProjects">Scripts</button>
+            </div>
+
+            <!-- Project Grid -->
+            <div class="project-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card" data-category="simulation">
+                    <div class="project-header">
+                        <span class="category-badge">Simulation</span>
+                        <h3>Thermo-Mechanical Stress Simulation Pipeline</h3>
+                    </div>
+                    <p>An automated pipeline evaluating interfacial delamination risks in multi-die heterogeneous integration architectures under cyclic thermal loading conditions.</p>
+                    <div class="project-tech"><span>ANSYS</span> <span>FEA</span></div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-category="scripts">
+                    <div class="project-header">
+                        <span class="category-badge">Scripts</span>
+                        <h3>Parametric Mesh Density Optimization</h3>
+                    </div>
+                    <p>A MATLAB tool integrated with ANSYS subrouting scripts to automate sub-modeling meshes around high-aspect-ratio Through-Silicon Vias (TSVs), reducing computation time by 40%.</p>
+                    <div class="project-tech"><span>MATLAB</span> <span>Automation</span></div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card" data-category="simulation">
+                    <div class="project-header">
+                        <span class="category-badge">Simulation</span>
+                        <h3>Advanced Packaging Material Modeling</h3>
+                    </div>
+                    <p>Characterization of non-linear viscoelastic properties of underfill materials, mapping stress relaxation behaviors over wide operating temperature profiles.</p>
+                    <div class="project-tech"><span>Material Science</span> <span>Multiphysics</span></div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <h2>Get In Touch</h2>
+            <p>I am always open to discussing engineering challenges, advanced semiconductor developments, or collaborative projects.</p>
+            <div class="contact-links">
+                <a href="mailto:lohani.bhushan@gmail.com" class="btn">Email Me</a>
+                <a href="https://github.com/blohani" target="_blank" class="btn secondary">GitHub</a>
+                <a href="https://www.linkedin.com/in/bhushan-lohani-ph-d-5819b7112/" target="_blank" class="btn secondary">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Bhushan Lohani. Built with HTML, CSS, & JS.</p>
+    </footer>
+
+    <!-- JavaScript for Dynamic Project Filtering -->
+    <script>
+        function filterProjects(category) {
+            // Update active state on buttons
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Filter cards
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
